@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\ProjectController::class, 'index']);
 
-Auth::routes();
+Auth::routes([
+    'register' => false
+]);
 
 Route::resource('/imgs', App\Http\Controllers\ImgController::class);
 Route::resource('/normas', App\Http\Controllers\NormaController::class);
