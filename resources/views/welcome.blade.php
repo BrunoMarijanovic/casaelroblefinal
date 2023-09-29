@@ -5,7 +5,7 @@
 
     @foreach($imgs as $key => $img)
         <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
-            <img src="{{ $img->imagen }}" class="d-block w-100" alt="{{ $img->tituloES }}">
+            <img src="{{ $img->imagen }}" class="d-block w-100 img-reducida" alt="{{ $img->tituloES }}">
         </div>
     @endforeach
 
