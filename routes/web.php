@@ -24,6 +24,7 @@ Route::resource('/normas', App\Http\Controllers\NormaController::class);
 Route::resource('/precios', App\Http\Controllers\PrecioController::class);
 Route::resource('/reservas', App\Http\Controllers\ReservaController::class);
 Route::resource('/servicios', App\Http\Controllers\ServicioController::class);
+Route::resource('/diasminimos', App\Http\Controllers\DiasMinimoController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

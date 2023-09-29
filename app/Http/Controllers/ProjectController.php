@@ -9,6 +9,7 @@ use App\Models\Norma;
 use App\Models\Precio;
 use App\Models\Servicio;
 use App\Models\Reserva;
+use App\Models\Diasminimo;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -19,13 +20,13 @@ class ProjectController extends Controller
     
     public function index()
     {
-        $imgs = Img::paginate();
+        $imgs = Img::all();
         $normas = Norma::paginate();
         $servicios = Servicio::paginate();
         
         // Generar JSON para tener las reservas del calendario
         $json = "[";
-        $fechas = Reserva::paginate();
+        $fechas = Reserva::all();
         foreach($fechas as $fecha)
         {
             $fechaInicio = new Carbon($fecha->fechaInicio);
@@ -41,12 +42,10 @@ class ProjectController extends Controller
             
         }
         
-        $precios = Precio::paginate();
+        $precios = Precio::all();
         foreach($precios as $precio)
         {
             $fechaDia = new Carbon($precio->fecha);
-
-            $fechaFin->addDays(1);
 
             $json .= "{ title: '" . $precio->precio . "€', " .
                 "date: '" . $fechaDia->format('Y-m-d') . "'," .
@@ -54,6 +53,19 @@ class ProjectController extends Controller
                 ;
             
         }
+
+        $diasminimo = Diasminimo::all();
+        foreach($diasminimo as $dia)
+        {
+            $fechaDia = new Carbon($dia->fecha);
+
+            $json .= "{ title: 'Minim days: " . $dia->minimodias . "', " .
+                "date: '" . $fechaDia->format('Y-m-d') . "'," .
+                "color: 'green' },"
+                ;
+            
+        }
+
 
         $json .= "]";
 
