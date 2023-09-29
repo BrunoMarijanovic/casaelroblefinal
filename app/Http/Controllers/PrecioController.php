@@ -22,10 +22,9 @@ class PrecioController extends Controller
      */
     public function index()
     {
-        $precios = Precio::paginate();
+        $precios = Precio::all();
 
-        return view('precio.index', compact('precios'))
-            ->with('i', (request()->input('page', 1) - 1) * $precios->perPage());
+        return view('precio.index', compact('precios'));
     }
 
     /**

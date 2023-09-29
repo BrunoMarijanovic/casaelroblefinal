@@ -11066,7 +11066,7 @@ html {
 
 .bg {
   /* Full height */
-  height: 1500px;
+  height: 1300px;
   width: 100%;
 
   /* Center and scale the image nicely */
@@ -11074,18 +11074,23 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1700px) {
   .bg {
-    height: 700px;
+    height: 800px;
   }
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
+  .bg {
+    height: 600px;
+  }
+}
+@media only screen and (max-width: 600px) {
   .bg {
     height: 500px;
   }
 }
 @media only screen and (max-width: 500px) {
   .bg {
-    height: 300px;
+    height: 450px;
   }
 }
