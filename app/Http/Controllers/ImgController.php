@@ -55,7 +55,7 @@ class ImgController extends Controller
         if($request->hasFile('imagen'))
         {
             $filename = $request->getSchemeAndHttpHost() . 
-                '/casarobletest/casarobletest/public/assets/img/' . 
+                '/casaelroblefinal/casaelroblefinal/public/assets/img/' . 
                 time() . 
                 '.' . 
                 $request->imagen->extension();

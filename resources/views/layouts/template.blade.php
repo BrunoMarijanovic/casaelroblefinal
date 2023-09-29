@@ -30,11 +30,12 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-            <a class="navbar-brand" href="#page-top">
-                <img src="assets/img/logoCasaPortada.png" 
-                    alt="LogoCasaRoble"
-                    style="height: 4em">
-            </a>                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#page-top">
+                    <img src="assets/img/logoCasaPortada.png" 
+                        alt="LogoCasaRoble"
+                        style="height: 4em">
+                </a>                
+                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     @lang('messages.menu')
                     <i class="fas fa-bars"></i>
                 </button>
@@ -50,16 +51,20 @@
                         <select id="idioma" name="idioma" class="nav-link py-3 px-0 px-lg-3 rounded"
                             onchange="cambiarIdioma(this);">
                             <option class="nav-link py-3 px-0 px-lg-3 rounded" 
-                                value="ca" @if(app()->getLocale() == 'ca') selected @endif >Català</option>
+                                value="ca" @if(app()->getLocale() == 'ca') selected @endif >Català
+                            </option>
 
                             <option class="nav-link py-3 px-0 px-lg-3 rounded" 
-                                value="es" @if(app()->getLocale() == 'es') selected @endif>Español</option>
+                                value="es" @if(app()->getLocale() == 'es') selected @endif>Español
+                            </option>
 
                             <option class="nav-link py-3 px-0 px-lg-3 rounded" 
-                                value="en" @if(app()->getLocale() == 'en') selected @endif>English</option>
+                                value="en" @if(app()->getLocale() == 'en') selected @endif>English
+                            </option>
 
                             <option class="nav-link py-3 px-0 px-lg-3 rounded" 
-                                value="fr" @if(app()->getLocale() == 'fr') selected @endif>Francés</option>
+                                value="fr" @if(app()->getLocale() == 'fr') selected @endif>Francés
+                            </option>
                         </select>
                     </ul>
                 </div>
@@ -67,11 +72,13 @@
         </nav>
         <!-- Masthead-->
         <header class="bg" style="background-image: url('assets/img/imgportada_.jpg');">
-            
         </header>
+        <h2 class="texto-centrado">CASA VACACIONAL EL ROBLE</h2>
+
         
         <!-- Imatges Section-->
-        <section class="page-section portfolio" id="imatges">
+        <section class="page-section portfolio" id="imatges"
+            style="margin-top: -150px">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">@lang('messages.images')</h2>
@@ -84,8 +91,25 @@
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
 
-                    <!-- Acá mostramos todas las imagenes de la BBDD -->
-                    @yield('imagenes')
+                    <div class="container">
+                      
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                    
+                            @yield('carouselImg')
+                    
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                        </div>
+                    </div>
+                    
                     
                 </div>
             </div>
