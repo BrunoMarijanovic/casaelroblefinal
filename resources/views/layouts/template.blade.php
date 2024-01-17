@@ -7,14 +7,14 @@
         <meta name="author" content="" />
         <title>Casa el roble</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="https://casaelroble.net/public/assets/img/logoCasa.png" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://casaelroble.net/public/css/styles.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -30,7 +30,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="#page-top">CASA EL ROBLE</a>
+                <a class="navbar-brand" href="#page-top">
+                    <img src="https://casaelroble.net/public/assets/img/logoCasaPortada.png" 
+                        alt="LogoCasaRoble"
+                        style="height: 4em">
+                </a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     @lang('messages.menu')
                     <i class="fas fa-bars"></i>
@@ -63,12 +67,13 @@
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="bg" style="background-image: url('assets/img/imgportada_.jpg');">
-            
+        <header class="bg" style="background-image: url('https://casaelroble.net/public/assets/img/imgportada_.jpg');">
         </header>
+        <h2 class="texto-centrado">CASA VACACIONAL EL ROBLE</h2>
         
         <!-- Imatges Section-->
-        <section class="page-section portfolio" id="imatges">
+        <section class="page-section portfolio" id="imatges"
+            style="margin-top: -150px">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">@lang('messages.images')</h2>
@@ -81,8 +86,24 @@
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
 
-                    <!-- Acá mostramos todas las imagenes de la BBDD -->
-                    @yield('imagenes')
+                    <div class="container">
+                      
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                    
+                            @yield('carouselImg')
+                    
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                        </div>
+                    </div>
                     
                 </div>
             </div>
@@ -158,13 +179,15 @@
                 <br/>
 
                 <div class="row">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d743.0962774506245!2d2.7805869697059418!3d41.841535097316026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses!2ses!4v1694281271889!5m2!1ses!2ses" 
-                    width="600" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m11!1m3!1d851.9592737299811!2d2.78993411931371!3d41.83873050066443!2m2!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb1f18d9c847a5%3A0x476b54f49371fc1a!2sCasa%20de%20alquiler%20vacacional!5e1!3m2!1ses!2ses!4v1696758521462!5m2!1ses!2ses" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </iframe>
                 </div>
             </div>
         </section>
@@ -194,7 +217,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="https://casaelroble.net/public/js/scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
@@ -224,7 +247,7 @@
             function cambiarIdioma(select) {
                 var idiomaSeleccionado = select.value;
                 // Redirigir a la URL correspondiente usando JavaScript
-                window.location.href = "{{ url('locale') }}/" + idiomaSeleccionado;
+                window.location.href = "{{ url('public/locale') }}/" + idiomaSeleccionado;
             }
         </script>
 

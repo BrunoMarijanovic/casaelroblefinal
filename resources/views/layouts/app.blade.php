@@ -46,6 +46,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('precios.index') }}">{{ __('Precios') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('diasminimos.index') }}">{{ __('Dias minimos') }}</a>
+                        </li>
                     @endif
                     </ul>
 
