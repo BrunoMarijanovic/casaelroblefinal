@@ -10,5 +10,6 @@ return [
     'close' => 'Close',
     'menu' => 'Menu',
     'resenas' => 'Reviews',
-    'home' => 'Home'
+    'home' => 'Home',
+    'createYourReview' => 'Create your review'
 ];

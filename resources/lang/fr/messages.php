@@ -10,5 +10,6 @@ return [
     'close' => 'Fermer',
     'menu' => 'Menu',
     'resenas' => 'Commentaires',
-    'home' => 'Accueil'
+    'home' => 'Accueil',
+    'createYourReview' => 'Créez votre avis'
 ];

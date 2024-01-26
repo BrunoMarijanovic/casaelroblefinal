@@ -31,6 +31,8 @@ Route::resource('/resenas', App\Http\Controllers\ResenaController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/createReview', [App\Http\Controllers\ProjectController::class, 'formReview'])->name('create.review');
+Route::post('/createReview/send', [App\Http\Controllers\ProjectController::class, 'sendReview'])->name('send.review');
+
 
 Route::get('locale/{locale}', function ($locale){
     session()->put('locale', $locale);

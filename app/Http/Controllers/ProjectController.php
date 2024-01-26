@@ -78,4 +78,10 @@ class ProjectController extends Controller
     {
         return view('reviews.form');
     }
+
+    public function sendReview()
+    {
+        // dd('entra');
+        return redirect()->route('index');
+    }
 }

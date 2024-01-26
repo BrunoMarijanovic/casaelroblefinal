@@ -10,5 +10,6 @@ return [
     'close' => 'Tancar',
     'menu' => 'Menú',
     'resenas' => 'Ressenyes',
-    'home' => 'Inici'
+    'home' => 'Inici',
+    'createYourReview' => 'Crea la teva ressenya'
 ];

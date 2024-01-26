@@ -67,15 +67,121 @@
         <section class="page-section bg-primary text-white mb-0" id="normes">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">@lang('messages.rules')</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white">@lang('messages.createYourReview')</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- About Section Content-->
+
+                <!-- Presentación -->
+                <p style="text-align: justify">
+                    Muchas gracias por tu estancia en Casa el Roble, espero que hayas disfrutado mucho durante tu estadía.
+                    <br/>
+                    Nos ayudaría mucho saber tu opinión para poderos dar un mejor servicio a los próximos huéspedes o a vosotros si decidís volver.
+                </p>
+
+                <br/>
+
+                <form method="POST" action="{{ route('send.review') }}"  role="form" enctype="multipart/form-data">
+                    @csrf
+                    <!-- Pregunta 1 -->
+                    <h3>Relación calidad - precio:</h3>
+                    <p style="text-align: justify">
+                        La relación calidad/precio se ha adecuado a tus expectativas?
+                    </p>
+                    <select class="form-control" name="calidadPrecio[]" id="calidadPrecio">
+                        <option value="0" selected disabled hidden>Selecciona una opción</option>
+                        <option value="5">Excelente</option>
+                        <option value="4">Buena</option>
+                        <option value="3">Justa</option>
+                        <option value="2">Mala</option>
+                        <option value="1">Muy mala</option>
+                    </select>
+
+                    <br/>
+                    <br/>
+
+                    <!-- Pregunta 2 -->
+                    <h3>Trato personal:</h3>
+                    <p style="text-align: justify">
+                        La persona que te ha recibido ha sido amable y correcto?
+                    </p>
+                    <select class="form-control" name="tratoPersonal[]" id="tratoPersonal">
+                        <option value="0" selected disabled hidden>Selecciona una opción</option>
+                        <option value="5">Excelente</option>
+                        <option value="4">Bueno</option>
+                        <option value="3">Normal</option>
+                        <option value="2">Malo</option>
+                        <option value="1">Muy malo</option>
+                    </select>
+                    
+                    <br/>
+                    <br/>
+
+                    <!-- Pregunta 3 -->
+                    <h3>Ubicación:</h3>
+                    <p style="text-align: justify">
+                        Que te ha parecido la ubicación? Te ha resultado fácil llegar al destino?
+                    </p>
+                    <select class="form-control" name="ubicacion[]" id="ubicacion">
+                        <option value="0" selected disabled hidden>Selecciona una opción</option>
+                        <option value="5">Muy fácil</option>
+                        <option value="4">Fácil</option>
+                        <option value="3">Normal</option>
+                        <option value="2">Difícil</option>
+                        <option value="1">Muy difícil</option>
+                    </select>
+                    
+                    <br/>
+                    <br/>
+
+                    <!-- Pregunta 4 -->
+                    <h3>Instalaciones y servicios:</h3>
+                    <p style="text-align: justify">
+                        Las instalaciones de la casa han sido correctos?
+                    </p>
+                    <select class="form-control" name="instalacionesServicios[]" id="instalacionesServicios">
+                        <option value="0" selected disabled hidden>Selecciona una opción</option>
+                        <option value="5">Excelente</option>
+                        <option value="4">Bueno</option>
+                        <option value="3">Normal</option>
+                        <option value="2">Malo</option>
+                        <option value="1">Muy malo</option>
+                    </select>
+                    
+                    <br/>
+                    <br/>
+
+                    <!-- Pregunta 5 -->
+                    <h3>Limpieza:</h3>
+                    <p style="text-align: justify">
+                        Al llegar a la casa, esta la encontraste límpia?
+                    </p>
+                    <select class="form-control" name="instalacionesServicios[]" id="instalacionesServicios">
+                        <option value="0" selected disabled hidden>Selecciona una opción</option>
+                        <option value="5">Excelente</option>
+                        <option value="4">Buena</option>
+                        <option value="3">Justa</option>
+                        <option value="2">Mala</option>
+                        <option value="1">Muy mala</option>
+                    </select>
+
+                    <br/>
+                    <br/>
+                    
+                    <h3>Comentario:</h3>
+                    <textarea name="Notas" rows="4" cols="20" class="form-control"></textarea>
+
+                    <br/>
+                    
+                    <div class="box-footer mt20" style="text-align: center">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block btnSend"
+                            onclick="return confirmSubmit()">ENVIAR</button>
+                    </div>
+
+                </form>
             </div>
         </section>
-
 
         <!-- Footer-->
         <footer class="footer text-center">
@@ -113,6 +219,10 @@
                 var idiomaSeleccionado = select.value;
                 // Redirigir a la URL correspondiente usando JavaScript
                 window.location.href = "{{ url('/locale') }}/" + idiomaSeleccionado;
+            }
+
+            function confirmSubmit() {
+                return confirm("Tu reseña se validarà por uno de nuestros administradores\n¿Quieres enviar tu reseña?");
             }
         </script>
     
