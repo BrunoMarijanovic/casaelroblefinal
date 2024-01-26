@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        // Schema::create('precios', function (Blueprint $table) {
+        // Schema::create('resenas', function (Blueprint $table) {
         //     $table->bigIncrements('id');
 
-        //     $table->date('fecha');
-        //     $table->string('precio');
-            
-        //     $table->timestamps();
+        //     $table->string('nombre');
+        //     $table->string('resena');
+
+        //     $table->timestamps();            
         // });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        // Schema::dropIfExists('resenas');
     }
 };

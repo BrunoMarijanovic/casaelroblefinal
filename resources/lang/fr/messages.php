@@ -9,4 +9,6 @@ return [
     'localitzation' => 'Emplacement',
     'close' => 'Fermer',
     'menu' => 'Menu',
+    'resenas' => 'Commentaires',
+    'home' => 'Accueil'
 ];

@@ -652,7 +652,7 @@ progress {
     max-width: 720px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .container-lg, .container-md, .container-sm, .container {
     max-width: 960px;
   }
@@ -1231,7 +1231,7 @@ progress {
     --bs-gutter-y: 3rem;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .col-lg {
     flex: 1 0 0%;
   }
@@ -3311,7 +3311,7 @@ textarea.form-control-lg {
     left: auto;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .dropdown-menu-lg-start {
     --bs-position: start;
   }
@@ -3951,7 +3951,7 @@ textarea.form-control-lg {
     overflow-y: visible;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .navbar-expand-lg {
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -4938,7 +4938,7 @@ textarea.form-control-lg {
     border-left-width: var(--bs-list-group-border-width);
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .list-group-horizontal-lg {
     flex-direction: row;
   }
@@ -5395,7 +5395,7 @@ textarea.form-control-lg {
     --bs-modal-width: 300px;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .modal-lg,
   .modal-xl {
     --bs-modal-width: 800px;
@@ -5919,7 +5919,7 @@ textarea.form-control-lg {
   } ]
 } */
 .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")
 }
 
 .carousel-control-next-icon {
@@ -6310,7 +6310,7 @@ textarea.form-control-lg {
     visibility: visible;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .offcanvas-lg {
     --bs-offcanvas-height: auto;
     --bs-offcanvas-border-width: 0;
@@ -6836,7 +6836,7 @@ textarea.form-control-lg {
     z-index: 1020;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .sticky-lg-top {
     position: sticky;
     top: 0;
@@ -9291,7 +9291,7 @@ textarea.form-control-lg {
     text-align: center !important;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .float-lg-start {
     float: left !important;
   }
@@ -10837,7 +10837,7 @@ html {
   font-size: 2.25rem;
   line-height: 2rem;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .page-section .page-section-heading {
     font-size: 3rem;
     line-height: 2.5rem;
@@ -10920,7 +10920,7 @@ html {
   padding: 0.8rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   #mainNav {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -10982,7 +10982,7 @@ html {
   width: 15rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .masthead {
     padding-top: calc(6rem + 104px);
     padding-bottom: 6rem;
@@ -11027,7 +11027,7 @@ html {
   font-size: 2.25rem;
   line-height: 2rem;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .portfolio-modal .portfolio-modal-title {
     font-size: 3rem;
     line-height: 2.5rem;
@@ -11222,8 +11222,19 @@ html {
   to {opacity: 2}
 }
 
-
+.conatainerReviews {
+  background-color: #d8d8d8; 
+  border-radius: 30px
+}
 
 .img-reducida {
   max-height: 600px; /* Establece la altura máxima deseada */
+}
+
+.btnCreateReview {
+  padding: 20px;
+}
+
+.btnCreateReview:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Reseña</span>
+                            <span class="card-title">{{ __('Show') }} Resena</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('resena.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('resenas.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
@@ -25,8 +25,12 @@
                             {{ $resena->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Reseña:</strong>
+                            <strong>Resena:</strong>
                             {{ $resena->resena }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Estrellas:</strong>
+                            {{ $resena->estrellas }}
                         </div>
 
                     </div>

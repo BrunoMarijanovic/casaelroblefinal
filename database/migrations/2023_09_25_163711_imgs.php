@@ -12,23 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('imgs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        // Schema::create('imgs', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
 
-            $table->string('imagen');
+        //     $table->string('imagen');
 
-            $table->string('tituloES');
-            $table->string('tituloCAT');
-            $table->string('tituloEN');
-            $table->string('tituloFR');
+        //     $table->string('tituloES');
+        //     $table->string('tituloCAT');
+        //     $table->string('tituloEN');
+        //     $table->string('tituloFR');
             
-            $table->string('descripcionES');
-            $table->string('descripcionCAT');
-            $table->string('descripcionEN');
-            $table->string('descripcionFR');
+        //     $table->string('descripcionES');
+        //     $table->string('descripcionCAT');
+        //     $table->string('descripcionEN');
+        //     $table->string('descripcionFR');
             
-            $table->timestamps();
-        });
+        //     $table->timestamps();
+        // });
     }
 
     /**

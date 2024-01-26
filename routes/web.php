@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\ProjectController::class, 'index']);
+Route::get('/', [App\Http\Controllers\ProjectController::class, 'index'])->name('index');
 
 Auth::routes([   
     'register' => false
@@ -25,9 +25,12 @@ Route::resource('/precios', App\Http\Controllers\PrecioController::class);
 Route::resource('/reservas', App\Http\Controllers\ReservaController::class);
 Route::resource('/servicios', App\Http\Controllers\ServicioController::class);
 Route::resource('/diasminimos', App\Http\Controllers\DiasMinimoController::class);
+Route::resource('/resenas', App\Http\Controllers\ResenaController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/createReview', [App\Http\Controllers\ProjectController::class, 'formReview'])->name('create.review');
 
 Route::get('locale/{locale}', function ($locale){
     session()->put('locale', $locale);

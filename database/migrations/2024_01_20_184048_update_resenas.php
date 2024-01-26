@@ -11,15 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
-        // Schema::create('precios', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-
-        //     $table->date('fecha');
-        //     $table->string('precio');
-            
-        //     $table->timestamps();
-        // });
+        Schema::table('resenas', function (Blueprint $table) {
+            $table->integer('estrellas');
+        });
     }
 
     /**

@@ -10,6 +10,7 @@ use App\Models\Precio;
 use App\Models\Servicio;
 use App\Models\Reserva;
 use App\Models\Diasminimo;
+use App\Models\Resenas;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -23,6 +24,7 @@ class ProjectController extends Controller
         $imgs = Img::all();
         $normas = Norma::paginate();
         $servicios = Servicio::paginate();
+        $resenas = Resenas::all();
         
         // Generar JSON para tener las reservas del calendario
         $json = "[";
@@ -69,6 +71,11 @@ class ProjectController extends Controller
 
         $json .= "]";
 
-        return view('welcome', compact('imgs', 'normas', 'servicios', 'json'));
+        return view('welcome', compact('imgs', 'normas', 'servicios', 'json', 'resenas'));
+    }
+    
+    public function formReview()
+    {
+        return view('reviews.form');
     }
 }
