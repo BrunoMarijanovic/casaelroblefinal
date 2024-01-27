@@ -21,18 +21,55 @@
                     <div class="card-body">
                         
                         <div class="form-group">
+                            <strong>Habilitado:</strong>
+                            @if ($resena->habilitado == 0)
+                                NO
+                            @else
+                                SÍ
+                            @endIf
+                        </div>
+                        <div class="form-group">
                             <strong>Nombre:</strong>
                             {{ $resena->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Resena:</strong>
-                            {{ $resena->resena }}
+                            <strong>Email:</strong>
+                            {{ $resena->email }}
                         </div>
                         <div class="form-group">
-                            <strong>Estrellas:</strong>
-                            {{ $resena->estrellas }}
+                            <strong>Calidad precio:</strong>
+                            {{ $resena->calidadPrecio }} / 5
                         </div>
-
+                        <div class="form-group">
+                            <strong>Trato personal:</strong>
+                            {{ $resena->tratoPersonal }} / 5
+                        </div>
+                        <div class="form-group">
+                            <strong>Ubicacion:</strong>
+                            {{ $resena->ubicacion }} / 5
+                        </div>
+                        <div class="form-group">
+                            <strong>Instlaciones y servicios:</strong>
+                            {{ $resena->instalacionServicios }} / 5
+                        </div>
+                        <div class="form-group">
+                            <strong>Limpieza:</strong>
+                            {{ $resena->limpieza }} / 5
+                        </div>
+                        <div class="form-group">
+                            <strong>Comentario:</strong>
+                            {{ $resena->comentario }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Nota final:</strong>
+                            {{ $resena->notaFinal }} / 10
+                        </div>
+                        <br/>
+                        @if ($resena->habilitado == 0)
+                            <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> <button>{{ __('Habilitar') }}</button></a>
+                        @else
+                            <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> <button>{{ __('Deshabilitar') }}</button></a>
+                        @endIf
                     </div>
                 </div>
             </div>

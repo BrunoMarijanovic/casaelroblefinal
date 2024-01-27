@@ -22,6 +22,7 @@ class Reserva extends Model
     static $rules = [
 		'fechaFin' => 'required',
 		'fechaInicio' => 'required',
+		'email' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,7 +32,7 @@ class Reserva extends Model
      *
      * @var array
      */
-    protected $fillable = ['fechaFin','fechaInicio'];
+    protected $fillable = ['fechaFin','fechaInicio', 'email'];
 
 
 

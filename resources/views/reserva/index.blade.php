@@ -38,6 +38,7 @@
                                         
 										<th>Fecha inicio</th>
 										<th>Fecha fin</th>
+										<th>Email</th>
 
                                         <th></th>
                                     </tr>
@@ -49,6 +50,7 @@
                                             
 											<td>{{ $reserva->fechaInicio }}</td>
 											<td>{{ $reserva->fechaFin }}</td>
+											<td>{{ $reserva->email }}</td>
 
                                             <td>
                                                 <form action="{{ route('reservas.destroy',$reserva->id) }}" method="POST">

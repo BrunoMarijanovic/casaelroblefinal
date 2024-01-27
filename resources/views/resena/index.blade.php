@@ -36,8 +36,8 @@
                                     <tr>
                                         
 										<th>Nombre</th>
-										<th>Resena</th>
-										<th>Estrellas</th>
+										<th>Nota final</th>
+										<th>Comentario</th>
 
                                         <th></th>
                                     </tr>
@@ -47,16 +47,18 @@
                                         <tr>
                                             
 											<td>{{ $resena->nombre }}</td>
-											<td>{{ $resena->resena }}</td>
-											<td>{{ $resena->estrellas }}</td>
+											<td>{{ $resena->notaFinal }}</td>
+											<td>{{ $resena->comentario }}</td>
 
                                             <td>
                                                 <form action="{{ route('resenas.destroy',$resena->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('resenas.edit',$resena->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Borrar') }}</button>
+                                                    
+                                                    @if ($resena->habilitado == 0)
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Habilitar') }}</a>
+                                                    @else
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Deshabilitar') }}</a>
+                                                    @endIf
                                                 </form>
                                             </td>
                                         </tr>

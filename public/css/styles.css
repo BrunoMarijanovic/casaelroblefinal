@@ -11246,3 +11246,28 @@ html {
 .btnSend:hover {
   background-color: #11273e;
 }
+
+.reveiwOption {
+  color: white;
+}
+
+.reveiwOption:hover {
+  color: yellow;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  box-sizing: border-box;
+}

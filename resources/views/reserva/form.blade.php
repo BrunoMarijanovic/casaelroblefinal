@@ -13,6 +13,12 @@
             {{ Form::date('fechaFin', $reserva->fechaFin, ['class' => 'form-control' . ($errors->has('fechaFin') ? ' is-invalid' : ''), 'placeholder' => 'Fechafin']) }}
             {!! $errors->first('fechaFin', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <br/>
+        <div class="form-group">
+            {{ Form::label('Email') }}
+            {{ Form::text('email', $reserva->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
+            {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
     </div>
         <br/>

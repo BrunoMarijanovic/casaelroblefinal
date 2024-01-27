@@ -78,99 +78,197 @@
                     Muchas gracias por tu estancia en Casa el Roble, espero que hayas disfrutado mucho durante tu estadía.
                     <br/>
                     Nos ayudaría mucho saber tu opinión para poderos dar un mejor servicio a los próximos huéspedes o a vosotros si decidís volver.
+                    <br/><br/>
+                    Para validar tu identidad, necesitaremos un nombre y correo electrónico.
                 </p>
-
-                <br/>
 
                 <form method="POST" action="{{ route('send.review') }}"  role="form" enctype="multipart/form-data">
                     @csrf
+
+                    @if (session('succes'))
+                        <div class="alert alert-primary">
+                            {{ session('succes') }}
+                        </div>
+                    @endif
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="name" id="name" value="{{ old('name') }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="text" name="email" id="email" value="{{ old('email') }}">
+                    </div>
+
+                    @if (session('message'))
+                        <div class="alert alert-danger">
+                            {{ session('message') }}
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <br/>
                     <!-- Pregunta 1 -->
                     <h3>Relación calidad - precio:</h3>
                     <p style="text-align: justify">
                         La relación calidad/precio se ha adecuado a tus expectativas?
                     </p>
-                    <select class="form-control" name="calidadPrecio[]" id="calidadPrecio">
-                        <option value="0" selected disabled hidden>Selecciona una opción</option>
-                        <option value="5">Excelente</option>
-                        <option value="4">Buena</option>
-                        <option value="3">Justa</option>
-                        <option value="2">Mala</option>
-                        <option value="1">Muy mala</option>
-                    </select>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="calidadPrecio" value="5" 
+                                {{ old('calidadPrecio') == '5' ? 'checked' : '' }}> 😊 Excelente
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="calidadPrecio" value="4"
+                                {{ old('calidadPrecio') == '4' ? 'checked' : '' }}> 🙂 Buena
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="calidadPrecio" value="3"
+                                {{ old('calidadPrecio') == '3' ? 'checked' : '' }}> 😐 Justa
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="calidadPrecio" value="2"
+                                {{ old('calidadPrecio') == '2' ? 'checked' : '' }}> 😕 Mala
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="calidadPrecio" value="1"
+                                {{ old('calidadPrecio') == '1' ? 'checked' : '' }}> ☹️ Muy mala
+                        </label>
+                    </div>
 
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
                     <!-- Pregunta 2 -->
                     <h3>Trato personal:</h3>
                     <p style="text-align: justify">
                         La persona que te ha recibido ha sido amable y correcto?
                     </p>
-                    <select class="form-control" name="tratoPersonal[]" id="tratoPersonal">
-                        <option value="0" selected disabled hidden>Selecciona una opción</option>
-                        <option value="5">Excelente</option>
-                        <option value="4">Bueno</option>
-                        <option value="3">Normal</option>
-                        <option value="2">Malo</option>
-                        <option value="1">Muy malo</option>
-                    </select>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="tratoPersonal" value="5"
+                                {{ old('tratoPersonal') == '5' ? 'checked' : '' }}> 😊 Excelente
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="tratoPersonal" value="4"
+                                {{ old('tratoPersonal') == '4' ? 'checked' : '' }}> 🙂 Bueno
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="tratoPersonal" value="3"
+                                {{ old('tratoPersonal') == '3' ? 'checked' : '' }}> 😐 Normal
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="tratoPersonal" value="2"
+                                {{ old('tratoPersonal') == '2' ? 'checked' : '' }}> 😕 Malo
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="tratoPersonal" value="1"
+                                {{ old('tratoPersonal') == '1' ? 'checked' : '' }}> ☹️ Muy malo
+                        </label>
+                    </div>
                     
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
                     <!-- Pregunta 3 -->
                     <h3>Ubicación:</h3>
                     <p style="text-align: justify">
                         Que te ha parecido la ubicación? Te ha resultado fácil llegar al destino?
-                    </p>
-                    <select class="form-control" name="ubicacion[]" id="ubicacion">
-                        <option value="0" selected disabled hidden>Selecciona una opción</option>
-                        <option value="5">Muy fácil</option>
-                        <option value="4">Fácil</option>
-                        <option value="3">Normal</option>
-                        <option value="2">Difícil</option>
-                        <option value="1">Muy difícil</option>
-                    </select>
+                    </p>                    
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="ubicacion" value="5"
+                                {{ old('ubicacion') == '5' ? 'checked' : '' }}> 😊 Muy fácil
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="ubicacion" value="4"
+                                {{ old('ubicacion') == '4' ? 'checked' : '' }}> 🙂 Fácil
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="ubicacion" value="3"
+                                {{ old('ubicacion') == '3' ? 'checked' : '' }}> 😐 Normal
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="ubicacion" value="2"
+                                {{ old('ubicacion') == '2' ? 'checked' : '' }}> 😕 Difícil
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="ubicacion" value="1"
+                                {{ old('ubicacion') == '1' ? 'checked' : '' }}> ☹️ Muy difícil
+                        </label>
+                    </div>
                     
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
                     <!-- Pregunta 4 -->
                     <h3>Instalaciones y servicios:</h3>
                     <p style="text-align: justify">
                         Las instalaciones de la casa han sido correctos?
-                    </p>
-                    <select class="form-control" name="instalacionesServicios[]" id="instalacionesServicios">
-                        <option value="0" selected disabled hidden>Selecciona una opción</option>
-                        <option value="5">Excelente</option>
-                        <option value="4">Bueno</option>
-                        <option value="3">Normal</option>
-                        <option value="2">Malo</option>
-                        <option value="1">Muy malo</option>
-                    </select>
+                    </p>                
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="instalacionesServicios" value="5"
+                                {{ old('instalacionesServicios') == '5' ? 'checked' : '' }}> 😊 Excelente
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="instalacionesServicios" value="4"
+                                {{ old('instalacionesServicios') == '4' ? 'checked' : '' }}> 🙂 Bueno
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="instalacionesServicios" value="3"
+                                {{ old('instalacionesServicios') == '3' ? 'checked' : '' }}> 😐 Normal
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="instalacionesServicios" value="2"
+                                {{ old('instalacionesServicios') == '2' ? 'checked' : '' }}> 😕 Malo
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="instalacionesServicios" value="1"
+                                {{ old('instalacionesServicios') == '1' ? 'checked' : '' }}> ☹️ Muy malo
+                        </label>
+                    </div>
                     
-                    <br/>
-                    <br/>
+                    <br/><br/>
 
                     <!-- Pregunta 5 -->
                     <h3>Limpieza:</h3>
                     <p style="text-align: justify">
                         Al llegar a la casa, esta la encontraste límpia?
-                    </p>
-                    <select class="form-control" name="instalacionesServicios[]" id="instalacionesServicios">
-                        <option value="0" selected disabled hidden>Selecciona una opción</option>
-                        <option value="5">Excelente</option>
-                        <option value="4">Buena</option>
-                        <option value="3">Justa</option>
-                        <option value="2">Mala</option>
-                        <option value="1">Muy mala</option>
-                    </select>
+                    </p>            
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="limpieza" value="5"
+                                {{ old('limpieza') == '5' ? 'checked' : '' }}> 😊 Excelente
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="limpieza" value="4"
+                                {{ old('limpieza') == '4' ? 'checked' : '' }}> 🙂 Buena
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="limpieza" value="3"
+                                {{ old('limpieza') == '3' ? 'checked' : '' }}> 😐 Justa
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="limpieza" value="2"
+                                {{ old('limpieza') == '2' ? 'checked' : '' }}> 😕 Mala
+                        </label>
+                        <label class="btn btn-outline-primary reveiwOption">
+                            <input type="radio" name="limpieza" value="1"
+                                {{ old('limpieza') == '1' ? 'checked' : '' }}> ☹️ Muy mala
+                        </label>
+                    </div>
 
-                    <br/>
-                    <br/>
+                    <br/><br/>
                     
                     <h3>Comentario:</h3>
-                    <textarea name="Notas" rows="4" cols="20" class="form-control"></textarea>
+                    <textarea name="comentario" rows="4" cols="20" class="form-control"></textarea>
 
                     <br/>
                     
@@ -178,7 +276,6 @@
                         <button type="submit" class="btn btn-primary btn-lg btn-block btnSend"
                             onclick="return confirmSubmit()">ENVIAR</button>
                     </div>
-
                 </form>
             </div>
         </section>
@@ -222,7 +319,7 @@
             }
 
             function confirmSubmit() {
-                return confirm("Tu reseña se validarà por uno de nuestros administradores\n¿Quieres enviar tu reseña?");
+                return confirm("Tu reseña primro se validarà por uno de nuestros administradores\n¿Quieres enviar tu reseña?");
             }
         </script>
     

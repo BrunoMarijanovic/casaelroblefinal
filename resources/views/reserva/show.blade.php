@@ -29,6 +29,11 @@
                             <strong>Fecha Fin:</strong>
                             {{ $reserva->fechaFin }}
                         </div>
+                        
+                        <div class="form-group">
+                            <strong>Email:</strong>
+                            {{ $reserva->email }}
+                        </div>
 
                     </div>
                 </div>

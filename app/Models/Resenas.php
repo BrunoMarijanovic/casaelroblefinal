@@ -9,8 +9,15 @@ class Resenas extends Model
 {
     static $rules = [
 		'nombre' => 'required',
-		'resena' => 'required',
-		'estrellas' => 'required',
+		'email' => 'required',
+		'calidadPrecio' => 'required',
+		'tratoPersonal' => 'required',
+		'ubicacion' => 'required',
+		'instalacionServicios' => 'required',
+		'limpieza' => 'required',
+		'comentario' => 'required',
+		'notaFinal' => 'required',
+		'habilitado' => 'required',
     ];
 
     protected $perPage = 20;
@@ -20,5 +27,6 @@ class Resenas extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','resena', 'estrellas'];
+    protected $fillable = ['nombre','email', 'calidadPrecio', 'tratoPersonal', 'ubicacion', 'instalacionServicios',
+      'limpieza', 'comentario', 'notaFinal', 'habilitado'];
 }
