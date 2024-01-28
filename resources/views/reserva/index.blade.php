@@ -39,6 +39,7 @@
 										<th>Fecha inicio</th>
 										<th>Fecha fin</th>
 										<th>Email</th>
+										<th>Correo enviado</th>
 
                                         <th></th>
                                     </tr>
@@ -51,6 +52,12 @@
 											<td>{{ $reserva->fechaInicio }}</td>
 											<td>{{ $reserva->fechaFin }}</td>
 											<td>{{ $reserva->email }}</td>
+                                            
+                                            @if ($reserva->mailEnviado == 1)
+											    <td>SÍ</td>
+                                            @else
+											    <td>NO</td>
+                                            @endIf
 
                                             <td>
                                                 <form action="{{ route('reservas.destroy',$reserva->id) }}" method="POST">

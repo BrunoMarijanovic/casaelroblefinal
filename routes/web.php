@@ -26,6 +26,8 @@ Route::resource('/reservas', App\Http\Controllers\ReservaController::class);
 Route::resource('/servicios', App\Http\Controllers\ServicioController::class);
 Route::resource('/diasminimos', App\Http\Controllers\DiasMinimoController::class);
 Route::resource('/resenas', App\Http\Controllers\ResenaController::class);
+Route::post('/resenas/habilitar/{id}', [App\Http\Controllers\ResenaController::class, 'habilitar'])->name('resena.habilitar');
+Route::post('/resenas/deshabilitar/{id}', [App\Http\Controllers\ResenaController::class, 'deshabilitar'])->name('resena.deshabilitar');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

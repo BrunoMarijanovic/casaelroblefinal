@@ -140,10 +140,16 @@ $json
 
 @foreach ($resenas as $key => $resena)
 
-    <div class="carousel-item {{$key == 0 ? 'active' : ''}}">  
-        <p>{{ $resena->nombre }}</p>
-        <p>{{ $resena->resena }}</p>
-        <p>{{ $resena->estrellas }}</p>
+    <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
+        <div class="user-review">
+            <div class="review-header">
+                <h3>{{ $resena->nombre }} <i class="fa fa-star"></i></h3>
+                <div class="rating-box">
+                    <span class="rating">{{ $resena->notaFinal }}/10</span>
+                </div>
+            </div>
+            <p class="comment">{{ $resena->comentario }}</p>
+        </div>
     </div>
 
 @endforeach

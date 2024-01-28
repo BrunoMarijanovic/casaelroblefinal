@@ -22,10 +22,9 @@ class ResenaController extends Controller
      */
     public function index()
     {
-        $resenas = Resenas::paginate();
+        $resenas = Resenas::all();
 
-        return view('resena.index', compact('resenas'))
-            ->with('i', (request()->input('page', 1) - 1) * $resenas->perPage());
+        return view('resena.index', compact('resenas'));
     }
 
     /**
@@ -109,5 +108,27 @@ class ResenaController extends Controller
 
         return redirect()->route('resenas.index')
             ->with('success', 'Resena deleted successfully');
+    }
+
+    public function habilitar($id)
+    {
+        $resena = Resenas::find($id);
+        $resena->habilitado = 1;
+        $resena->save();
+
+        $resenas = Resenas::all();
+
+        return view('resena.index', compact('resenas'));
+    }
+
+    public function deshabilitar($id)
+    {
+        $resena = Resenas::find($id);
+        $resena->habilitado = 0;
+        $resena->save();
+
+        $resenas = Resenas::all();
+
+        return view('resena.index', compact('resenas'));
     }
 }

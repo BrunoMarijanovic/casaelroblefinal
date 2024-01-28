@@ -27,7 +27,39 @@ class ProjectController extends Controller
         $imgs = Img::all();
         $normas = Norma::paginate();
         $servicios = Servicio::paginate();
-        $resenas = Resenas::all();
+        $resenas = Resenas::where('habilitado', 1)->get();
+
+        $maximaNotaSobre10 = 0;
+        $maximaNotaSobre5 = 0;
+        $notaGlobal = 0;
+        $notaCalidadPrecio = 0;
+        $notaTratoPersonal = 0;
+        $notaUbicacion = 0;
+        $notaInstalacionSevicios = 0;
+        $notaLimpieza = 0;
+        foreach($resenas as $resena)
+        {
+            $notaGlobal += $resena->notaFinal; // Sobre 10
+
+            // Sobre 5
+            $notaCalidadPrecio += $resena->calidadPrecio;
+            $notaTratoPersonal += $resena->tratoPersonal;
+            $notaUbicacion += $resena->ubicacion;
+            $notaInstalacionSevicios += $resena->instalacionServicios;
+            $notaLimpieza += $resena->limpieza;
+
+            $maximaNotaSobre10 += 10;
+            $maximaNotaSobre5 += 5;
+        }
+
+        $notaGlobal = round(($notaGlobal / $maximaNotaSobre10) * 10, 1);
+
+        $notaCalidadPrecio = round(($notaCalidadPrecio / $maximaNotaSobre5) * 10, 1);
+        $notaTratoPersonal = round(($notaTratoPersonal / $maximaNotaSobre5) * 10, 1);
+        $notaUbicacion = round(($notaUbicacion / $maximaNotaSobre5) * 10, 1);
+        $notaInstalacionSevicios = round(($notaInstalacionSevicios / $maximaNotaSobre5) * 10, 1);
+        $notaLimpieza = round(($notaLimpieza / $maximaNotaSobre5) * 10, 1);
+
         
         // Generar JSON para tener las reservas del calendario
         $json = "[";
@@ -74,7 +106,9 @@ class ProjectController extends Controller
 
         $json .= "]";
 
-        return view('welcome', compact('imgs', 'normas', 'servicios', 'json', 'resenas'));
+        return view('welcome', compact('imgs', 'normas', 'servicios', 'json', 'resenas',
+            'notaGlobal', 'notaCalidadPrecio', 'notaTratoPersonal', 'notaUbicacion',
+            'notaInstalacionSevicios', 'notaLimpieza'));
     }
     
     public function formReview()
@@ -100,8 +134,7 @@ class ProjectController extends Controller
         if ($validator->fails()) {
             // Redireccionar de vuelta con los errores
             return redirect()->back()->withErrors($validator)
-                ->with('message', 'Por favor, rellene todas las preguntas')->withInput();
-
+                ->with('message', trans('messages.errorRelleneCampos'))->withInput();
         }
 
         try{
@@ -111,7 +144,7 @@ class ProjectController extends Controller
             if ($resenaDelMismoCliente->isNotEmpty())
             {
                 return redirect()->back()
-                    ->withErrors('Ya creaste una reseña anteriormente con este email')
+                    ->withErrors(trans('messages.reveiwCreatedSameUser'))
                     ->withInput();
             }
 
@@ -157,6 +190,6 @@ class ProjectController extends Controller
         // que la reseña se envió correctamente y que hay que esperar que un administrador
         // acepte nuestra reseña
         return redirect()->back()
-            ->with('succes', 'Su reseña será revisada por un administrador, una vez aceptada o rechazada te enviaremos un correo electronico.');
+            ->with('succes', trans('messages.reveiwCreated'));
     }
 }

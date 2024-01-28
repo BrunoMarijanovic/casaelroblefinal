@@ -105,7 +105,47 @@
                 <!-- About Section Content-->
                 <div class="row justify-content-center">
 
-                    <div class="container">                    
+                    <div class="container">  
+                        <!-- Nota global -->
+                        <div class="review-header">
+                            <h3>@lang('messages.overallMark') <i class="fa fa-star"></i></h3>
+                            <div class="rating-box">
+                                <span class="rating">{{ $notaGlobal }}/10</span>
+                            </div>
+                        </div>
+
+                        <!-- Categorias -->
+                        <div>
+                            <p style="margin-bottom: 0px">@lang('messages.priceQuality') {{ $notaCalidadPrecio }}</p>
+                            <div class="progress" style="margin-bottom: 15px">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ ($notaCalidadPrecio / 10) * 100 }}%;" aria-valuenow="{{ $notaCalidadPrecio }}" aria-valuemin="0" aria-valuemax="10"></div>
+                            </div>
+
+                            <p style="margin-bottom: 0px">@lang('messages.personalCare') {{ $notaTratoPersonal }}</p>
+                            <div class="progress" style="margin-bottom: 15px">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ ($notaTratoPersonal / 10) * 100 }}%;" aria-valuenow="{{ $notaTratoPersonal }}" aria-valuemin="0" aria-valuemax="10"></div>
+                            </div>
+
+                            <p style="margin-bottom: 0px">@lang('messages.location'): {{ $notaUbicacion }}</p>
+                            <div class="progress" style="margin-bottom: 15px">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ ($notaUbicacion / 10) * 100 }}%;" aria-valuenow="{{ $notaUbicacion }}" aria-valuemin="0" aria-valuemax="10"></div>
+                            </div>
+
+                            <p style="margin-bottom: 0px">@lang('messages.facilitiesAnaServices') {{ $notaInstalacionSevicios }}</p>
+                            <div class="progress" style="margin-bottom: 15px">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ ($notaInstalacionSevicios / 10) * 100 }}%;" aria-valuenow="{{ $notaInstalacionSevicios }}" aria-valuemin="0" aria-valuemax="10"></div>
+                            </div>
+
+                            <p style="margin-bottom: 0px">@lang('messages.cleaning') {{ $notaLimpieza }}</p>
+                            <div class="progress" style="margin-bottom: 15px">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ ($notaLimpieza / 10) * 100 }}%;" aria-valuenow="{{ $notaLimpieza }}" aria-valuemin="0" aria-valuemax="10"></div>
+                            </div>
+                        </div>
+
+
+                    
+                        <!-- Carousel donde mostramos los comentarios y la nota de los usuarios -->      
+                        <p style="text-align: center; margin-top: 25px;"><b>@lang('messages.reviewsFromGuests')</b></p>
                         <div id="carouselResena" class="carousel slide conatainerReviews" data-bs-ride="carousel">
                             <div class="carousel-inner" style="text-align: -webkit-center; padding-top: 20px">
 
@@ -127,7 +167,7 @@
                         <a href="{{ route('create.review') }}">
                             <button class="btnCreateReview navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" 
                             type="button">
-                                CREA TU RESEÑA
+                                @lang('messages.createReview')
                                 <i class="fa fa-circle-plus" style="margin-left: 10px"></i>
                             </button>
                         </a>

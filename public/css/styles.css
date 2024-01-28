@@ -11271,3 +11271,43 @@ html {
   width: 200px;
   box-sizing: border-box;
 }
+
+.user-review {
+  padding: 20px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.review-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.rating-box {
+  background-color: #5cb85c;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.rating {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.comment {
+  color: #555;
+  line-height: 1.6;
+}
+
+.fa-star {
+  color: gold;
+  margin-left: 5px;
+}

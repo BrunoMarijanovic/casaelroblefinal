@@ -75,11 +75,7 @@
 
                 <!-- Presentación -->
                 <p style="text-align: justify">
-                    Muchas gracias por tu estancia en Casa el Roble, espero que hayas disfrutado mucho durante tu estadía.
-                    <br/>
-                    Nos ayudaría mucho saber tu opinión para poderos dar un mejor servicio a los próximos huéspedes o a vosotros si decidís volver.
-                    <br/><br/>
-                    Para validar tu identidad, necesitaremos un nombre y correo electrónico.
+                    @lang('messages.explainReview')
                 </p>
 
                 <form method="POST" action="{{ route('send.review') }}"  role="form" enctype="multipart/form-data">
@@ -92,12 +88,12 @@
                     @endif
 
                     <div class="form-group">
-                        <label for="nombre">Nombre:</label>
+                        <label for="nombre">@lang('messages.name')</label>
                         <input type="text" name="name" id="name" value="{{ old('name') }}">
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Correo electrónico:</label>
+                        <label for="email">@lang('messages.email')</label>
                         <input type="text" name="email" id="email" value="{{ old('email') }}">
                     </div>
 
@@ -118,163 +114,163 @@
 
                     <br/>
                     <!-- Pregunta 1 -->
-                    <h3>Relación calidad - precio:</h3>
+                    <h3>@lang('messages.valueForMoney')</h3>
                     <p style="text-align: justify">
-                        La relación calidad/precio se ha adecuado a tus expectativas?
+                        @lang('messages.explainValueMoney')
                     </p>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="calidadPrecio" value="5" 
-                                {{ old('calidadPrecio') == '5' ? 'checked' : '' }}> 😊 Excelente
+                                {{ old('calidadPrecio') == '5' ? 'checked' : '' }}> 😊 @lang('messages.excellent')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="calidadPrecio" value="4"
-                                {{ old('calidadPrecio') == '4' ? 'checked' : '' }}> 🙂 Buena
+                                {{ old('calidadPrecio') == '4' ? 'checked' : '' }}> 🙂 @lang('messages.buena')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="calidadPrecio" value="3"
-                                {{ old('calidadPrecio') == '3' ? 'checked' : '' }}> 😐 Justa
+                                {{ old('calidadPrecio') == '3' ? 'checked' : '' }}> 😐 @lang('messages.justa')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="calidadPrecio" value="2"
-                                {{ old('calidadPrecio') == '2' ? 'checked' : '' }}> 😕 Mala
+                                {{ old('calidadPrecio') == '2' ? 'checked' : '' }}> 😕 @lang('messages.mala')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="calidadPrecio" value="1"
-                                {{ old('calidadPrecio') == '1' ? 'checked' : '' }}> ☹️ Muy mala
+                                {{ old('calidadPrecio') == '1' ? 'checked' : '' }}> ☹️ @lang('messages.muyMala')
                         </label>
                     </div>
 
                     <br/><br/>
 
                     <!-- Pregunta 2 -->
-                    <h3>Trato personal:</h3>
+                    <h3>@lang('messages.personalCare')</h3>
                     <p style="text-align: justify">
-                        La persona que te ha recibido ha sido amable y correcto?
+                        @lang('messages.explainPersonalCare')
                     </p>
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="tratoPersonal" value="5"
-                                {{ old('tratoPersonal') == '5' ? 'checked' : '' }}> 😊 Excelente
+                                {{ old('tratoPersonal') == '5' ? 'checked' : '' }}> 😊 @lang('messages.excellent')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="tratoPersonal" value="4"
-                                {{ old('tratoPersonal') == '4' ? 'checked' : '' }}> 🙂 Bueno
+                                {{ old('tratoPersonal') == '4' ? 'checked' : '' }}> 🙂 @lang('messages.bueno')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="tratoPersonal" value="3"
-                                {{ old('tratoPersonal') == '3' ? 'checked' : '' }}> 😐 Normal
+                                {{ old('tratoPersonal') == '3' ? 'checked' : '' }}> 😐 @lang('messages.normal')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="tratoPersonal" value="2"
-                                {{ old('tratoPersonal') == '2' ? 'checked' : '' }}> 😕 Malo
+                                {{ old('tratoPersonal') == '2' ? 'checked' : '' }}> 😕 @lang('messages.malo')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="tratoPersonal" value="1"
-                                {{ old('tratoPersonal') == '1' ? 'checked' : '' }}> ☹️ Muy malo
+                                {{ old('tratoPersonal') == '1' ? 'checked' : '' }}> ☹️ @lang('messages.muyMalo')
                         </label>
                     </div>
                     
                     <br/><br/>
 
                     <!-- Pregunta 3 -->
-                    <h3>Ubicación:</h3>
+                    <h3>@lang('messages.location')</h3>
                     <p style="text-align: justify">
-                        Que te ha parecido la ubicación? Te ha resultado fácil llegar al destino?
+                        @lang('messages.explainLocation')
                     </p>                    
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="ubicacion" value="5"
-                                {{ old('ubicacion') == '5' ? 'checked' : '' }}> 😊 Muy fácil
+                                {{ old('ubicacion') == '5' ? 'checked' : '' }}> 😊 @lang('messages.muyFacil')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="ubicacion" value="4"
-                                {{ old('ubicacion') == '4' ? 'checked' : '' }}> 🙂 Fácil
+                                {{ old('ubicacion') == '4' ? 'checked' : '' }}> 🙂 @lang('messages.facil')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="ubicacion" value="3"
-                                {{ old('ubicacion') == '3' ? 'checked' : '' }}> 😐 Normal
+                                {{ old('ubicacion') == '3' ? 'checked' : '' }}> 😐 @lang('messages.normal')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="ubicacion" value="2"
-                                {{ old('ubicacion') == '2' ? 'checked' : '' }}> 😕 Difícil
+                                {{ old('ubicacion') == '2' ? 'checked' : '' }}> 😕 @lang('messages.dificil')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="ubicacion" value="1"
-                                {{ old('ubicacion') == '1' ? 'checked' : '' }}> ☹️ Muy difícil
+                                {{ old('ubicacion') == '1' ? 'checked' : '' }}> ☹️ @lang('messages.muyDificil')
                         </label>
                     </div>
                     
                     <br/><br/>
 
                     <!-- Pregunta 4 -->
-                    <h3>Instalaciones y servicios:</h3>
+                    <h3>@lang('messages.facilitiesAnaServices')</h3>
                     <p style="text-align: justify">
-                        Las instalaciones de la casa han sido correctos?
+                        @lang('messages.explainFacilitiesAnaServices')
                     </p>                
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="instalacionesServicios" value="5"
-                                {{ old('instalacionesServicios') == '5' ? 'checked' : '' }}> 😊 Excelente
+                                {{ old('instalacionesServicios') == '5' ? 'checked' : '' }}> 😊 @lang('messages.excellent')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="instalacionesServicios" value="4"
-                                {{ old('instalacionesServicios') == '4' ? 'checked' : '' }}> 🙂 Bueno
+                                {{ old('instalacionesServicios') == '4' ? 'checked' : '' }}> 🙂 @lang('messages.bueno')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="instalacionesServicios" value="3"
-                                {{ old('instalacionesServicios') == '3' ? 'checked' : '' }}> 😐 Normal
+                                {{ old('instalacionesServicios') == '3' ? 'checked' : '' }}> 😐 @lang('messages.normal')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="instalacionesServicios" value="2"
-                                {{ old('instalacionesServicios') == '2' ? 'checked' : '' }}> 😕 Malo
+                                {{ old('instalacionesServicios') == '2' ? 'checked' : '' }}> 😕 @lang('messages.malo')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="instalacionesServicios" value="1"
-                                {{ old('instalacionesServicios') == '1' ? 'checked' : '' }}> ☹️ Muy malo
+                                {{ old('instalacionesServicios') == '1' ? 'checked' : '' }}> ☹️ @lang('messages.muyMalo')
                         </label>
                     </div>
                     
                     <br/><br/>
 
                     <!-- Pregunta 5 -->
-                    <h3>Limpieza:</h3>
+                    <h3>@lang('messages.cleaning')</h3>
                     <p style="text-align: justify">
-                        Al llegar a la casa, esta la encontraste límpia?
+                        @lang('messages.explainCleaning')
                     </p>            
                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="limpieza" value="5"
-                                {{ old('limpieza') == '5' ? 'checked' : '' }}> 😊 Excelente
+                                {{ old('limpieza') == '5' ? 'checked' : '' }}> 😊 @lang('messages.excellent')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="limpieza" value="4"
-                                {{ old('limpieza') == '4' ? 'checked' : '' }}> 🙂 Buena
+                                {{ old('limpieza') == '4' ? 'checked' : '' }}> 🙂 @lang('messages.buena')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="limpieza" value="3"
-                                {{ old('limpieza') == '3' ? 'checked' : '' }}> 😐 Justa
+                                {{ old('limpieza') == '3' ? 'checked' : '' }}> 😐 @lang('messages.justa')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="limpieza" value="2"
-                                {{ old('limpieza') == '2' ? 'checked' : '' }}> 😕 Mala
+                                {{ old('limpieza') == '2' ? 'checked' : '' }}> 😕 @lang('messages.mala')
                         </label>
                         <label class="btn btn-outline-primary reveiwOption">
                             <input type="radio" name="limpieza" value="1"
-                                {{ old('limpieza') == '1' ? 'checked' : '' }}> ☹️ Muy mala
+                                {{ old('limpieza') == '1' ? 'checked' : '' }}> ☹️ @lang('messages.muyMala')
                         </label>
                     </div>
 
                     <br/><br/>
                     
-                    <h3>Comentario:</h3>
+                    <h3>@lang('messages.comment')</h3>
                     <textarea name="comentario" rows="4" cols="20" class="form-control"></textarea>
 
                     <br/>
                     
                     <div class="box-footer mt20" style="text-align: center">
                         <button type="submit" class="btn btn-primary btn-lg btn-block btnSend"
-                            onclick="return confirmSubmit()">ENVIAR</button>
+                            onclick="return confirmSubmit()">@lang('messages.send')</button>
                     </div>
                 </form>
             </div>
@@ -319,7 +315,9 @@
             }
 
             function confirmSubmit() {
-                return confirm("Tu reseña primro se validarà por uno de nuestros administradores\n¿Quieres enviar tu reseña?");
+                var warningReviewMessage = "{!! html_entity_decode(__('messages.warningReview')) !!}";
+
+                return confirm(warningReviewMessage);
             }
         </script>
     

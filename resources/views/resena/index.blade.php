@@ -16,11 +16,11 @@
                                 {{ __('Resena') }}
                             </span>
 
-                             <div class="float-right" style="margin-left: 10em">
+                             <!-- <div class="float-right" style="margin-left: 10em">
                                 <a href="{{ route('resenas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nuevo') }}
                                 </a>
-                              </div>
+                              </div> -->
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -53,13 +53,25 @@
                                             <td>
                                                 <form action="{{ route('resenas.destroy',$resena->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                    
-                                                    @if ($resena->habilitado == 0)
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Habilitar') }}</a>
-                                                    @else
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Deshabilitar') }}</a>
-                                                    @endIf
                                                 </form>
+                                            </td>
+
+                                            <td>                                                
+                                                @if ($resena->habilitado == 0)
+                                                    <form method="POST" action="{{ route('resena.habilitar', $resena->id) }}">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-sm btn-primary">
+                                                            <i class="fa fa-fw fa-eye"></i> {{ __('Habilitar') }}
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <form method="POST" action="{{ route('resena.deshabilitar', $resena->id) }}">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-sm btn-primary">
+                                                            <i class="fa fa-fw fa-eye"></i> {{ __('Deshabilitar') }}
+                                                        </button>
+                                                    </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

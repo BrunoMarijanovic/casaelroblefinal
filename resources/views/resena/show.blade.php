@@ -65,11 +65,22 @@
                             {{ $resena->notaFinal }} / 10
                         </div>
                         <br/>
+                                                                        
                         @if ($resena->habilitado == 0)
-                            <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> <button>{{ __('Habilitar') }}</button></a>
+                            <form method="POST" action="{{ route('resena.habilitar', $resena->id) }}">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    <i class="fa fa-fw fa-eye"></i> {{ __('Habilitar') }}
+                                </button>
+                            </form>
                         @else
-                            <a class="btn btn-sm btn-primary " href="{{ route('resenas.show',$resena->id) }}"><i class="fa fa-fw fa-eye"></i> <button>{{ __('Deshabilitar') }}</button></a>
-                        @endIf
+                            <form method="POST" action="{{ route('resena.deshabilitar', $resena->id) }}">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    <i class="fa fa-fw fa-eye"></i> {{ __('Deshabilitar') }}
+                                </button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
