@@ -19,6 +19,12 @@
             {{ Form::text('email', $reserva->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
             {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <br/>
+        <div class="form-group">
+            {{ Form::label('idioma', 'Idioma') }}
+            {{ Form::select('idioma', $idiomas, $reserva->idioma, ['class' => 'form-control' . ($errors->has('idioma') ? ' is-invalid' : '')]) }}
+            {!! $errors->first('idioma', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
     </div>
         <br/>

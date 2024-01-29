@@ -39,6 +39,7 @@
 										<th>Fecha inicio</th>
 										<th>Fecha fin</th>
 										<th>Email</th>
+										<th>Idioma</th>
 										<th>Correo enviado</th>
 
                                         <th></th>
@@ -52,6 +53,7 @@
 											<td>{{ $reserva->fechaInicio }}</td>
 											<td>{{ $reserva->fechaFin }}</td>
 											<td>{{ $reserva->email }}</td>
+											<td>{{ $reserva->getIdioma() }}</td>
                                             
                                             @if ($reserva->mailEnviado == 1)
 											    <td>SÍ</td>

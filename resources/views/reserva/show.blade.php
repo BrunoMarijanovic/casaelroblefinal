@@ -34,6 +34,11 @@
                             <strong>Email:</strong>
                             {{ $reserva->email }}
                         </div>
+                        
+                        <div class="form-group">
+                            <strong>Idioma:</strong>
+                            {{ $reserva->getIdioma() }}
+                        </div>
 
                     </div>
                 </div>

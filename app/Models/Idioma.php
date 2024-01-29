@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Idioma;
 
 /**
  * Class Reserva
@@ -17,13 +16,10 @@ use App\Models\Idioma;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Reserva extends Model
+class Idioma extends Model
 {
     
     static $rules = [
-		'fechaFin' => 'required',
-		'fechaInicio' => 'required',
-		'email' => 'required',
 		'idioma' => 'required',
     ];
 
@@ -34,11 +30,8 @@ class Reserva extends Model
      *
      * @var array
      */
-    protected $fillable = ['fechaFin','fechaInicio', 'email', 'idioma'];
+    protected $fillable = ['idioma'];
 
-    public function getIdioma()
-    {
-      return Idioma::find($this->idioma)->idioma;
-    }
+
 
 }
