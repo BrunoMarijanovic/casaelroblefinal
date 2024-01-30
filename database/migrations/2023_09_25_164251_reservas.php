@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('reservas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        // Schema::create('reservas', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
 
-            $table->date('fechaFin');
-            $table->date('fechaInicio');
+        //     $table->date('fechaFin');
+        //     $table->date('fechaInicio');
             
-            $table->timestamps();
-        });
+        //     $table->timestamps();
+        // });
     }
 
     /**

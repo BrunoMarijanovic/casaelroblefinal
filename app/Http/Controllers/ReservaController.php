@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reserva;
+use App\Models\Idioma;
 use Illuminate\Http\Request;
 
 /**
@@ -36,7 +37,9 @@ class ReservaController extends Controller
     public function create()
     {
         $reserva = new Reserva();
-        return view('reserva.create', compact('reserva'));
+        $idiomas = Idioma::pluck('idioma', 'id');
+
+        return view('reserva.create', compact('reserva', 'idiomas'));
     }
 
     /**
@@ -48,8 +51,16 @@ class ReservaController extends Controller
     public function store(Request $request)
     {
         request()->validate(Reserva::$rules);
+        
+        $reserva = new Reserva;
 
-        $reserva = Reserva::create($request->all());
+        $reserva->fechaFin = $request->fechaFin;
+        $reserva->fechaInicio = $request->fechaInicio;
+        $reserva->email = $request->email;
+        $reserva->mailEnviado = 0;
+        $reserva->idioma = $request->idioma;
+
+        $reserva->save();
 
         return redirect()->route('reservas.index')
             ->with('success', 'Reserva created successfully.');
@@ -75,10 +86,11 @@ class ReservaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {        
         $reserva = Reserva::find($id);
+        $idiomas = Idioma::pluck('idioma', 'id');
 
-        return view('reserva.edit', compact('reserva'));
+        return view('reserva.edit', compact('reserva', 'idiomas'));
     }
 
     /**

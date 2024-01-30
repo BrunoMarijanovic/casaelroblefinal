@@ -12,21 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('servicios', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        // Schema::create('servicios', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
 
-            $table->string('parrafo01ES');
-            $table->string('parrafo01CAT');
-            $table->string('parrafo01EN');
-            $table->string('parrafo01FR');
+        //     $table->string('parrafo01ES');
+        //     $table->string('parrafo01CAT');
+        //     $table->string('parrafo01EN');
+        //     $table->string('parrafo01FR');
             
-            $table->string('parrafo02ES');
-            $table->string('parrafo02CAT');
-            $table->string('parrafo02EN');
-            $table->string('parrafo02FR');
+        //     $table->string('parrafo02ES');
+        //     $table->string('parrafo02CAT');
+        //     $table->string('parrafo02EN');
+        //     $table->string('parrafo02FR');
             
-            $table->timestamps();
-        });
+        //     $table->timestamps();
+        // });
     }
 
     /**

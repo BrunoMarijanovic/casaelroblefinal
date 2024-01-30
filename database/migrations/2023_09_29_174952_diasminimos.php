@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         //
-        Schema::create('diasminimos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        // Schema::create('diasminimos', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
 
-            $table->date('fecha');
-            $table->string('minimodias');
+        //     $table->date('fecha');
+        //     $table->string('minimodias');
             
-            $table->timestamps();
-        });
+        //     $table->timestamps();
+        // });
     }
 
     /**

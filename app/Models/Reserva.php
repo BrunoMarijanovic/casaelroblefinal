@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Idioma;
 
 /**
  * Class Reserva
@@ -22,6 +23,8 @@ class Reserva extends Model
     static $rules = [
 		'fechaFin' => 'required',
 		'fechaInicio' => 'required',
+		'email' => 'required',
+		'idioma' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,8 +34,11 @@ class Reserva extends Model
      *
      * @var array
      */
-    protected $fillable = ['fechaFin','fechaInicio'];
+    protected $fillable = ['fechaFin','fechaInicio', 'email', 'idioma'];
 
-
+    public function getIdioma()
+    {
+      return Idioma::find($this->idioma)->idioma;
+    }
 
 }
