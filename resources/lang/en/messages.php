@@ -52,5 +52,5 @@ return [
     "muyDificil" => "Very difficult",
     'errorRelleneCampos' => 'Please fill in all the questions',    
     'reveiwCreatedSameUser' => 'You have already created a review with this email address',
-    'reveiwCreated' => 'Your review will be reviewed by an administrator. Once accepted or rejected, we will send you an email.',
+    'reveiwCreated' => 'Your review will be reviewed by an administrator.',
 ];

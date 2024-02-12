@@ -34,18 +34,21 @@
                 alt="LogoCasaRoble"
                 style="height: 4em">
         </a>
-        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" 
+                type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" 
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                id="toggle-menu">
             @lang('messages.menu')
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#imatges">@lang('messages.images')</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#serveis">@lang('messages.service')</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#dates">@lang('messages.availableDates')</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#normes">@lang('messages.rules')</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resenas">@lang('messages.resenas')</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacte">@lang('messages.contact')</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#imatges" onclick="toggleMenu()">@lang('messages.images')</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#serveis" onclick="toggleMenu()">@lang('messages.service')</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#dates" onclick="toggleMenu()">@lang('messages.availableDates')</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#normes" onclick="toggleMenu()">@lang('messages.rules')</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#resenas" onclick="toggleMenu()">@lang('messages.resenas')</a></li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contacte" onclick="toggleMenu()">@lang('messages.contact')</a></li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <select id="idioma" name="idioma" class="nav-link py-3 px-0 px-lg-3 rounded"
@@ -66,6 +69,19 @@
         </div>
     </div>
 </nav>
+
+<script>
+    function toggleMenu() {
+        // Cierra el menú si está abierto
+        var menuToggle = document.getElementById('toggle-menu');
+        if (menuToggle.getAttribute('aria-expanded') === 'true') {
+            var bootstrapMenu = new bootstrap.Collapse(document.getElementById('navbarResponsive'), {
+                toggle: false
+            });
+            bootstrapMenu.toggle();
+        }
+    }
+</script>
 @endsection
 
 

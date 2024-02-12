@@ -52,5 +52,5 @@ return [
     "muyDificil" => "Molt difícil",
     'errorRelleneCampos' => 'Si us plau, ompli totes les preguntes',
     'reveiwCreatedSameUser' => 'Ja has creat una ressenya amb aquesta adreça de correu electrònic',
-    'reveiwCreated' => 'La vostra ressenya serà revisada per un administrador. Una vegada acceptada o rebutjada, us enviarem un correu electrònic.',
+    'reveiwCreated' => 'La vostra ressenya serà revisada per un administrador.',
 ];

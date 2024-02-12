@@ -52,5 +52,5 @@ return [
     'muyDificil' => 'Muy difícil',
     "errorRelleneCampos" => "Por favor, rellene todas las preguntas",
     'reveiwCreatedSameUser' => 'Ya creaste una reseña anteriormente con este email',
-    'reveiwCreated' => 'Su reseña será revisada por un administrador, una vez aceptada o rechazada te enviaremos un correo electronico.',
+    'reveiwCreated' => 'Su reseña será revisada por un administrador.',
 ];
