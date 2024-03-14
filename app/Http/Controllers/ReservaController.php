@@ -56,7 +56,7 @@ class ReservaController extends Controller
 
         $reserva->fechaFin = $request->fechaFin;
         $reserva->fechaInicio = $request->fechaInicio;
-        $reserva->email = $request->email;
+        $reserva->email = $request->email != NULL ? $request->email : '';
         $reserva->mailEnviado = 0;
         $reserva->idioma = $request->idioma;
 

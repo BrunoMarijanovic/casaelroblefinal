@@ -3,9 +3,9 @@
 @section('meta')
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
+<meta name="description" content="Descubre nuestra casa vacacional cerca de PGA Catalunya con piscina de sal, parque infantil, canasta de baloncesto, área de pimpon, dardos, WiFi gratuito, parking incluido, barbacoa, bicicletas y más. Ideal para golfistas en busca de una estancia cómoda y relajante cerca del campo de golf PGA." />
 <meta name="author" content="" />
-<title>Casa el roble</title>
+<title>Casa el Roble - Cerca de PGA Catalunya Girona con Piscina de Sal y Servicios de Ocio</title>
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="https://casaelroble.net/public/assets/img/logoCasa.png" />
 <!-- Font Awesome icons (free version)-->

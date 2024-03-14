@@ -23,7 +23,6 @@ class Reserva extends Model
     static $rules = [
 		'fechaFin' => 'required',
 		'fechaInicio' => 'required',
-		'email' => 'required',
 		'idioma' => 'required',
     ];
 
