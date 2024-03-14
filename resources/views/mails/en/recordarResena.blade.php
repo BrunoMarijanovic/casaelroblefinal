@@ -45,8 +45,8 @@
             Kind regards,
         </p>
     </div>
-    <div style="text-align: center; font-family: sans-serif;">        
-        <a href="https://casaelroble.net/createReview">
+    <div style="text-align: center; font-family: sans-serif;">            
+        <a href="https://casaelroble.net/public/createReview">
             <button style="background-color: #1abc9c; border: 2px solid white; border-radius: 5px; 
                 color: white; font-size: 20px; padding: 10px 20px; cursor: pointer;">
                 CREATE YOUR REVIEW!
